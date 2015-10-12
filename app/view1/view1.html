@@ -1,1 +1,19 @@
 <p>This is the partial for view 1.</p>
+<div id="items" ng-controller="SearchController">
+    <div>
+        Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="order">
+            <option value="name">Alphabetical</option>
+            <option value="power">Fastest</option>
+            <option value="-power">Slowest</option>
+        </select>
+    </div>
+    <p>Total number of items: {{ items.length }}</p>
+    <ul>
+        <li ng-repeat="i in items.response.venues">
+            {{ i.name }}
+        </li>
+    </ul>
+</div>
+
