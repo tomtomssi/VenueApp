@@ -3,15 +3,14 @@
     <div>
         Search: <input ng-model="query">
         Sort by:
-        <select ng-model="order">
+        <select ng-model="orderProperty">
             <option value="name">Alphabetical</option>
-            <option value="power">Fastest</option>
-            <option value="-power">Slowest</option>
+            <option value="distance">Closest</option>
         </select>
     </div>
     <p>Total number of items: {{ items.length }}</p>
     <ul>
-        <li ng-repeat="i in items.venues | filter: query">
+        <li ng-repeat="i in items.venues | filter: query | orderBy:orderProperty">
             {{ i.name }}
         </li>
     </ul>
