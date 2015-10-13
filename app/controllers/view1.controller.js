@@ -29,4 +29,6 @@ function SearchController(locationservice, dataservice, $scope){
                 });
         }
     }
+
+    $scope.orderProperty = 'name';
 }
