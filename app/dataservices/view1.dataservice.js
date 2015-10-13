@@ -9,14 +9,8 @@ function dataservice($http){
         getVenues: getVenues
     };
 
-    function getVenues(){
-        var url = "https://api.foursquare.com/v2/venues/search" +
-            "?client_id=" +
-            "&client_secret=" +
-            "&v=20130815" +
-            "&ll=40.7,-74";
-
-        return $http.get(url)
+    function getVenues(latitude, longitude){
+        return $http.get(createUrl(latitude, longitude))
             .then(getVenuesSuccess)
             .catch(getVenuesFailed);
 
@@ -25,8 +19,20 @@ function dataservice($http){
             return response.data;
         }
 
-        function getVenuesFailed(){
+        function getVenuesFailed(response){
+            console.log(response);
             console.log("HTTP GET failed");
+        }
+
+        function createUrl(latitude, longitude){
+            return "https://api.foursquare.com/v2/venues/search" +
+                "?client_id=" +
+                "&client_secret=" +
+                "&v=20130815" +
+                "&ll=" +
+                latitude +
+                "," +
+                longitude;
         }
     }
 }
