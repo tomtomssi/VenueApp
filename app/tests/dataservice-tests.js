@@ -31,7 +31,8 @@ describe("dataservice ", function () {
           ]
         }
     });
-    dataservice.getVenues().then(function(response) {
+
+    dataservice.getVenues(tCoords.dummyLat, tCoords.dummyLng).then(function(response) {
         expect(response.data.venues.length).toEqual(2);
         expect(response.data.venues[0].name).toEqual("Lääkäri");
         expect(response.data.venues[1].location.lat).toEqual(15.8456);
