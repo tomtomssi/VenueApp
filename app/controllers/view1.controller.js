@@ -2,14 +2,23 @@ angular
     .module('myApp.view1')
     .controller('SearchController', SearchController);
 
-function SearchController($scope, $http){
-  var url = "https://api.foursquare.com/v2/venues/search" +
-      "?client_id=" + gConfiguration.client_id +
-      "&client_secret=" + gConfiguration.client_secret +
-      "&v=20130815" +
-      "&ll=40.7,-74";
+SearchController.$inject = ['dataservice', '$scope'];
 
-    $http.get(url).success(function(data){
-        $scope.items = data;
-    });
+function SearchController(dataservice, $scope){
+
+    activate();
+
+    function activate(){
+
+        getVenues().then(function(){
+            console.log("Venues successfully fetched")
+        });
+
+        function getVenues(){
+            return dataservice.getVenues()
+                .then(function(data){
+                    $scope.items = data.response;
+                });
+        }
+    }
 }
