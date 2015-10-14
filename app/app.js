@@ -7,7 +7,15 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
   'uiGmapgoogle-maps'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+]).config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+      .when('/locations', {
+        templateUrl: 'partials/location-details.html',
+        controller: 'LocationDetailController'
+      }).
+      when('/locations/:locationId', {
+        templateUrl: 'partials/location-details.html',
+        controller: 'LocationDetailController'
+      }).
+      otherwise({redirectTo: '/view1'});
 }]);
