@@ -1,8 +1,20 @@
-angular
-    .module('myApp.view1')
-    .controller('SearchController', SearchController);
+var app = angular
+    .module('myApp.view1');
+    app.controller('SearchController', SearchController);
+    app.controller('LocationDetailController', LocationDetailController);
 
 SearchController.$inject = ['mapservice', 'locationservice', 'dataservice', '$scope'];
+LocationDetailController.$inject = ['$scope', '$routeParams'];
+
+function LocationDetailController($scope, $routeParams){
+
+    activate();
+
+    function activate(){
+        console.log("ASDADASDADSSD");
+        $scope.locationId = $routeParams.locationId;
+    }
+}
 
 function SearchController(mapservice, locationservice, dataservice, $scope){
 
