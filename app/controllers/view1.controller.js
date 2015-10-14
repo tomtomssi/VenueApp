@@ -26,7 +26,7 @@ function SearchController(mapservice, locationservice, dataservice, $scope){
                 .then(function(data){
                     console.log("Dataservice fetched venues");
                     $scope.items = data.response;
-                    mapservice.drawMarkers(latitude, longitude)
+                    mapservice.drawMarkers(data.response.venues, latitude, longitude)
                 });
         }
     }

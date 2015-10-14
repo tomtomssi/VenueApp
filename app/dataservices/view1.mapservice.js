@@ -9,23 +9,36 @@ function mapservice($rootScope) {
         drawMarkers: drawMarkers
     };
 
-    function drawMarkers(latitude, longitude) {
+    function drawMarkers(venues, latitude, longitude) {
         $rootScope.map = {
             center: {
-                latitude: latitude, longitude: longitude
-            }, zoom: 4
-        };
-        $rootScope.options = {
-            scrollwheel: true
-        };
-        $rootScope.marker = {
-            id: 0,
-            coords: {
                 latitude: latitude,
                 longitude: longitude
-            },
-            options: {draggable: false}
+            }, zoom: 16
         };
+        $rootScope.options = {
+            scrollwheel: true,
+            title: 'ihuuuu'
+        };
+        $rootScope.randomMarkers = [];
+        for( var i = 0; i < venues.length; i++){
+            $rootScope.randomMarkers.push(createMarker(venues[i], i));
+        }
         console.log("Markers drawn successfully!");
+    }
+
+    function createMarker(venue, i){
+        var ret = {
+            latitude: venue.location.lat,
+            longitude: venue.location.lng,
+            title: venue.name,
+            options: {
+                labelContent: venue.name,
+                labelAnchor: '55 0',
+                labelClass: 'marker-labels'
+            },
+            id:  i
+        };
+        return ret;
     }
 }

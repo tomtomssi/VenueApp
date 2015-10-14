@@ -1,4 +1,8 @@
 <div class="container" ng-controller="SearchController">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+        <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" options="'options'" type="'cluster'">
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
     <div class="row" id="search">
         <div class="col-xs-8 col-xs-offset-2">
             <div class="input-group">
@@ -22,10 +26,6 @@
             <div id="distance">{{ i.location.distance }}</div>
         </li>
     </ul>
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-        </ui-gmap-marker>
-    </ui-gmap-google-map>
 </div>
 
 
