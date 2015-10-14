@@ -3,25 +3,46 @@
         <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" options="'options'" type="'cluster'">
         </ui-gmap-markers>
     </ui-gmap-google-map>
-    <div class="row" id="search">
-        <div class="col-xs-8 col-xs-offset-2">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2" id="search">
             <div class="input-group">
                 <div class="input-group-btn search-panel">
                     <select ng-model="orderProperty">
                         <option value="name">Alphabetical</option>
                         <option value="location.distance">Closest</option>
+                        <option value="-stats.checkinsCount">Visitors</option>
                     </select>
                 </div>
                 <input type="text" class="form-control" name="x" placeholder="Search term..." ng-model="query">
             </div>
         </div>
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+            <ul class="location-list" ng-repeat="i in items.venues | filter: query | orderBy:orderProperty">
+                <li>
+                    <time datetime="">
+                        <span class="distance">{{ i.location.distance }}</span>
+                        <span class="meters">m</span>
+                    </time>
+                    <div class="info">
+                        <h2 class="title">{{ i.name }}</h2>
+                        <p class="checkinsCount">Visitor count: {{ i.stats.checkinsCount }}</p>
+                        <a class="desc">{{ i.url }}</a>
+                    </div>
+                    <div class="social">
+                        <ul>
+                            <li class="facebook" style="width:33%;"><a href="#facebook">
+                                <span class="fa fa-facebook"></span></a></li>
+                            <li class="twitter" style="width:34%;"><a href="#twitter">
+                                <span class="fa fa-twitter"></span></a></li>
+                            <li class="google-plus" style="width:33%;"><a href="#google-plus">
+                                <span class="fa fa-google-plus"></span></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <ul>
-        <li ng-repeat="i in items.venues | filter: query | orderBy:orderProperty">
-            <div id="venue">{{ i.name }}:</div>
-            <div id="distance">{{ i.location.distance }}</div>
-        </li>
-    </ul>
 </div>
+
 
 
