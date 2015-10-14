@@ -11,7 +11,6 @@ function LocationDetailController($scope, $routeParams){
     activate();
 
     function activate(){
-        console.log("ASDADASDADSSD");
         $scope.locationId = $routeParams.locationId;
     }
 }
