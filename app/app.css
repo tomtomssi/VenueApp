@@ -33,12 +33,20 @@
   font-size: 12px;
 }
 
+#search {
+  margin-top: 30px;
+}
+
 #search select {
   height: 99%;
   margin-right: 10px;
 }
 
-.angular-google-map-container { height: 400px; }
+.angular-google-map-container {
+  border: 1px solid #000000;
+  border-radius: 10%;
+  height: 400px;
+}
 
 .marker-labels {
   color: red;
@@ -50,4 +58,8 @@
   width: 110px;
   border: 2px solid black;
   white-space: nowrap;
+}
+
+.angular-google-map {
+  border-radius: 10%;
 }
