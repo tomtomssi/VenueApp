@@ -26,8 +26,8 @@ function dataservice($http){
 
         function createUrl(latitude, longitude){
             return "https://api.foursquare.com/v2/venues/search" +
-                "?client_id=" +
-                "&client_secret=" +
+                "?client_id=" + gConfiguration.client_id +
+                "&client_secret=" + gConfiguration.client_secret +
                 "&v=20130815" +
                 "&ll=" +
                 latitude +
