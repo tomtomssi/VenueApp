@@ -1,18 +1,31 @@
-<p>This is the partial for view 1.</p>
-<div id="items" ng-controller="SearchController">
-    <div>
-        Search: <input ng-model="query">
-        Sort by:
-        <select ng-model="orderProperty">
-            <option value="name">Alphabetical</option>
-            <option value="distance">Closest</option>
-        </select>
+<div class="container" ng-controller="SearchController">
+    <div class="row" id="search">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <select ng-model="orderProperty">
+                        <option value="name">Alphabetical</option>
+                        <option value="location.distance">Closest</option>
+                    </select>
+                </div>
+                <input type="text" class="form-control" name="x" placeholder="Search term..." ng-model="query">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
     </div>
-    <p>Total number of items: {{ items.length }}</p>
     <ul>
         <li ng-repeat="i in items.venues | filter: query | orderBy:orderProperty">
-            {{ i.name }}
+            <div id="venue">{{ i.name }}:</div>
+            <div id="distance">{{ i.location.distance }}</div>
         </li>
     </ul>
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
 </div>
+
 

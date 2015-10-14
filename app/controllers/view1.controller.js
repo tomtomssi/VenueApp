@@ -2,9 +2,9 @@ angular
     .module('myApp.view1')
     .controller('SearchController', SearchController);
 
-SearchController.$inject = ['locationservice', 'dataservice', '$scope'];
+SearchController.$inject = ['mapservice', 'locationservice', 'dataservice', '$scope'];
 
-function SearchController(locationservice, dataservice, $scope){
+function SearchController(mapservice, locationservice, dataservice, $scope){
 
     activate();
 
@@ -26,6 +26,7 @@ function SearchController(locationservice, dataservice, $scope){
                 .then(function(data){
                     console.log("Dataservice fetched venues");
                     $scope.items = data.response;
+                    mapservice.drawMarkers(latitude, longitude)
                 });
         }
     }

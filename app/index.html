@@ -11,7 +11,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -37,9 +40,14 @@
   <script src="modules/view1.module.js"></script>
   <script src="dataservices/view1.locationservice.js"></script>
   <script src="dataservices/view1.dataservice.js"></script>
+  <script src="dataservices/view1.mapservice.js"></script>
   <script src="controllers/view1.controller.js"></script>
   <script src="view2/view2.js"></script>
   <script src="config/configuration.js"></script>
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+  <script src="../node_modules/angular-google-maps/node_modules/lodash/index.js"></script>
+  <script src="../node_modules/angular-google-maps/node_modules/angular-simple-logger/dist/index.js"></script>
+  <script src="../node_modules/angular-google-maps/dist/angular-google-maps.min.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
