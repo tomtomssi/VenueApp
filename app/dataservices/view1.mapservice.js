@@ -6,8 +6,29 @@ mapservice.$inject = ['$rootScope'];
 
 function mapservice($rootScope) {
     return {
-        drawMarkers: drawMarkers
+        drawMarkers: drawMarkers,
+        drawMarker: drawMarker
     };
+
+    function drawMarker(latitude, longitude) {
+        $rootScope.map = {
+            center: {
+                latitude: latitude, longitude: longitude
+            }, zoom: 16
+        };
+        $rootScope.options = {
+            scrollwheel: true
+        };
+        $rootScope.marker = {
+            id: 0,
+            coords: {
+                latitude: latitude,
+                longitude: longitude
+            },
+            options: {draggable: false}
+        };
+        console.log("Markers drawn successfully!");
+    }
 
     function drawMarkers(venues, latitude, longitude) {
         $rootScope.map = {

@@ -4,14 +4,19 @@ var app = angular
     app.controller('LocationDetailController', LocationDetailController);
 
 SearchController.$inject = ['mapservice', 'locationservice', 'dataservice', '$scope'];
-LocationDetailController.$inject = ['$scope', '$routeParams'];
+LocationDetailController.$inject = ['mapservice', 'dataservice', '$scope', '$routeParams'];
 
-function LocationDetailController($scope, $routeParams){
+function LocationDetailController(mapservice, dataservice, $scope, $routeParams){
 
     activate();
 
     function activate(){
         $scope.locationId = $routeParams.locationId;
+        dataservice.getVenue($routeParams.locationId)
+            .then(function(data){
+                $scope.venue = data.response.venue;
+                mapservice.drawMarker(data.response.venue.location.lat, data.response.venue.location.lng);
+            });
     }
 }
 
