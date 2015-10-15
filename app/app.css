@@ -139,6 +139,10 @@
   cursor: pointer;
 }
 
+#single-result {
+  margin-top: 35px;
+}
+
 .location-list > li > .info > .checkinsCount {
   font-size: 13pt;
   font-weight: 300;
