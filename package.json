@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "An Angular app for displaying close-by venues",
-  "repository": "https://github.com/angular/angular-seed",
+  "repository": "https://github.com/tomtomssi/VenueApp",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
