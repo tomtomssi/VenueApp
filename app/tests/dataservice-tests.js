@@ -1,7 +1,7 @@
 "use strict";
 
 describe("dataservice ", function () {
-  var redditService, httpBackend;
+  var dataservice, httpBackend;
 
   beforeEach(module("myApp.view1"));
 
