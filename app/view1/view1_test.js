@@ -32,15 +32,4 @@ describe('myApp.view1 module', function () {
     it('be defined', inject(function() {
         expect(createController).toBeDefined();
     }));
-
-    it('to succesfully send a GET', inject(function() {
-        authRequestHandler = $httpBackend.when('GET', tConfiguration.url)
-            .respond(
-            {
-                id: "jee"
-            }
-        );
-        var controller = createController();
-        $httpBackend.flush();
-    }));
 });
