@@ -11,8 +11,8 @@ angular.module('myApp.view1', ['ngRoute'])
 
     .controller('SearchController', function($scope, $http) {
         var url = "https://api.foursquare.com/v2/venues/search" +
-            "?client_id=" +
-            "&client_secret=" +
+            "?client_id=" + gConfiguration.client_id +
+            "&client_secret=" + gConfiguration.client_secret +
             "&v=20130815" +
             "&ll=40.7,-74";
 

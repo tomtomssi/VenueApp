@@ -5,6 +5,8 @@ bower_components/
 tmp
 .DS_Store
 .idea
+app/config
+
 # Created by https://www.gitignore.io/api/ngu,webstorm
 
 #!! ERROR: ngu is undefined. Use list command to see defined gitignore types !!#
