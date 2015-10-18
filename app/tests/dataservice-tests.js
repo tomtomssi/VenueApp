@@ -40,4 +40,27 @@ describe("dataservice ", function () {
         });
         httpBackend.flush();
     });
+
+    it("gets a proper response for a single venue GET", function () {
+        httpBackend.whenGET(tConfiguration.single_venue_url).respond({
+            data: {
+                venue: {
+                    name: "Lääkäri",
+                    location: {
+                        lat: 12.3345,
+                        lng: 65.1235
+                    }
+                }
+            }
+        });
+
+        dataservice.getVenue(tIds.venueId).then(function(response) {
+            expect(response.data.venue).toBeDefined();
+            expect(response.data.venue.name).toEqual("Lääkäri");
+            expect(response.data.venue.location.lat).toEqual(12.3345);
+            expect(response.data.venue.location.lng).toEqual(65.1235);
+        });
+        httpBackend.flush();
+    });
+
 });

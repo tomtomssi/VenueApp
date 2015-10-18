@@ -1,6 +1,7 @@
 tIds = {
     client_id: "id",
-    client_secret: "secret"
+    client_secret: "secret",
+    venueId: "testId"
 };
 
 tCoords = {
@@ -16,6 +17,11 @@ tConfiguration = {
             "&ll=" +
             tCoords.dummyLat +
             "," +
-            tCoords.dummyLng
-};
+            tCoords.dummyLng,
+
+    single_venue_url: "https://api.foursquare.com/v2/venues/" + tIds.venueId +
+                        "?client_id=" + tIds.client_id +
+                        "&client_secret=" + tIds.client_secret +
+                        "&v=20130815"
+    };
 
