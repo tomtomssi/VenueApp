@@ -46,6 +46,6 @@ function SearchController(mapservice, locationservice, dataservice, $scope){
                 });
         }
     }
-
     $scope.orderProperty = 'name';
 }
+
