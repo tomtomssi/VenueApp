@@ -38,8 +38,7 @@ function mapservice($rootScope) {
             }, zoom: 16
         };
         $rootScope.options = {
-            scrollwheel: true,
-            title: 'testTitle'
+            scrollwheel: true
         };
         $rootScope.randomMarkers = [];
         for( var i = 0; i < venues.length; i++){
