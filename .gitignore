@@ -6,7 +6,6 @@ app/config/configuration.js
 tmp
 .DS_Store
 .idea
-app/config
 
 # Created by https://www.gitignore.io/api/ngu,webstorm
 
