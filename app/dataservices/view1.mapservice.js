@@ -18,7 +18,7 @@ function mapservice($rootScope) {
         };
         $rootScope.options = {
             scrollwheel: true,
-            title: 'ihuuuu'
+            title: 'testTitle'
         };
         $rootScope.randomMarkers = [];
         for( var i = 0; i < venues.length; i++){
@@ -28,7 +28,7 @@ function mapservice($rootScope) {
     }
 
     function createMarker(venue, i){
-        var ret = {
+        return {
             latitude: venue.location.lat,
             longitude: venue.location.lng,
             title: venue.name,
@@ -39,6 +39,5 @@ function mapservice($rootScope) {
             },
             id:  i
         };
-        return ret;
     }
 }
